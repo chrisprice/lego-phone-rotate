@@ -15,10 +15,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
-
-    div {
-      text-align: center;
+    
+    svg {
+      display: block;
+      width: 10px;
+      height: 10px;
     }
     
     span {
@@ -31,7 +34,7 @@
 
 <body>
   <span></span>
-  <div>Foo</div>
+  <div><svg viewBox="-5 -5 9 9"><circle r="5" fill="black"/></svg></div>
   <script>
     const offset = { x: 0, y: 0 };
     document.body.addEventListener('touchend', ({ changedTouches }) => {
