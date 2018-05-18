@@ -42,10 +42,10 @@
         return;
       }
       const [{ clientX, clientY }] = changedTouches;
-      if ((clientX < document.body.clientWidth / 4) || (clientX > document.body.clientWidth / 4)) {
+      if ((clientX < document.body.clientWidth / 4) || (clientX > (document.body.clientWidth / 4) * 3)) {
         offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
       }
-      if ((clientY < document.body.clientHeight / 4) || (clientY > document.body.clientHeight / 4)) {
+      if ((clientY < document.body.clientHeight / 4) || (clientY > (document.body.clientHeight / 4) * 3)) {
         offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
       }
     });
