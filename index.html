@@ -33,6 +33,11 @@
   <span></span>
   <div>Foo</div>
   <script>
+    const offset = { x: 0, y: 0 };
+    document.body.addEventListener('click', ({ clientX, clientY }) => {
+      offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
+      offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
+    });
     addEventListener('deviceorientation', ({alpha, beta, gamma}) => {
       document.querySelector('span').innerText = `${alpha.toFixed(0)} ${beta.toFixed(0)} ${gamma.toFixed(0)}`;
       document.querySelector('div').style.transform = `rotateZ(${(gamma > 0 ? 1 : -1) * beta - (gamma > 0 ? 90 : -90)}deg)`; // rotateX(${beta}deg) 
