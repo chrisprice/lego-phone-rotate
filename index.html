@@ -34,11 +34,11 @@
   <div>Foo</div>
   <script>
     const offset = { x: 0, y: 0 };
-    document.body.addEventListener('touchend', ({ touches }) => {
-      if (touches.length !== 1) {
+    document.body.addEventListener('touchend', ({ changedTouches }) => {
+      if (changedTouches.length !== 1) {
         return;
       }
-      const { clientX, clientY } = touches[0];
+      const [{ clientX, clientY }] = changedTouches;
       offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
       offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
     });
