@@ -36,14 +36,18 @@
   <span></span>
   <div><svg viewBox="-5 -5 10 10"><circle r="5" fill="black"/></svg></div>
   <script>
-    const offset = { x: 0, y: 0 };
+    const offset = { x: 8, y: -20 };
     document.body.addEventListener('touchend', ({ changedTouches }) => {
       if (changedTouches.length !== 1) {
         return;
       }
       const [{ clientX, clientY }] = changedTouches;
-      offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
-      offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
+      if ((clientX < document.body.clientWidth / 4) || (clientX > document.body.clientWidth / 4)) {
+        offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
+      }
+      if ((clientY < document.body.clientHeight / 4) || (clientY > document.body.clientHeight / 4)) {
+        offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
+      }
     });
     addEventListener('deviceorientation', ({alpha, beta, gamma}) => {
       document.querySelector('span').innerText = `${alpha.toFixed(0)} ${beta.toFixed(0)} ${gamma.toFixed(0)} offset: ${offset.x} ${offset.y}`;
