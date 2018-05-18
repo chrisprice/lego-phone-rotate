@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lego Phone Rotate</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    div {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Foo</div>
+  <script>
+    addEventListener('deviceorientation', (event) => {
+      console.log(event.beta);
+      document.querySelector('div').style.transform = `rotate(${event.gamma}deg)`;
+    });
+  </script>
+</body>
+
+</html>
