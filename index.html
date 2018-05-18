@@ -20,14 +20,21 @@
     div {
       text-align: center;
     }
+    
+    span {
+      position: absolute;
+      top: 0;
+    }
+        
   </style>
 </head>
 
 <body>
+  <span></span>
   <div>Foo</div>
   <script>
     addEventListener('deviceorientation', ({alpha, beta, gamma}) => {
-      console.log(event.beta);
+      document.querySelector('span').innerText = `${alpha.toFixed(0)} ${gamma.toFixed(0)};
       document.querySelector('div').style.transform = `rotateZ(${alpha}deg) rotateY(${gamma}deg)`; // rotateX(${beta}deg) 
     });
   </script>
