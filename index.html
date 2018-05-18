@@ -28,7 +28,7 @@
   <script>
     addEventListener('deviceorientation', ({alpha, beta, gamma}) => {
       console.log(event.beta);
-      document.querySelector('div').style.transform = `rotateZ(${alpha}deg) rotateX(${beta}deg) rotateY(${gamma}deg)`;
+      document.querySelector('div').style.transform = `rotateZ(${alpha}deg) rotateY(${gamma}deg)`; // rotateX(${beta}deg) 
     });
   </script>
 </body>
