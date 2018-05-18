@@ -34,7 +34,7 @@
   <div>Foo</div>
   <script>
     const offset = { x: 0, y: 0 };
-    document.body.addEventListener('click', ({ clientX, clientY }) => {
+    document.body.addEventListener('touchend', ({ clientX, clientY }) => {
       offset.x += (clientX > document.body.clientWidth / 2) ? 1 : -1;
       offset.y += (clientY > document.body.clientHeight / 2) ? 1 : -1;
     });
